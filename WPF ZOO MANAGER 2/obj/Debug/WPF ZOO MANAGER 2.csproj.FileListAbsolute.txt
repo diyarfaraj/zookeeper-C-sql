@@ -1,0 +1,14 @@
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\bin\Debug\WPF ZOO MANAGER 2.exe.config
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\bin\Debug\WPF ZOO MANAGER 2.exe
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\bin\Debug\WPF ZOO MANAGER 2.pdb
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\WPF ZOO MANAGER 2.csprojAssemblyReference.cache
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\MainWindow.g.cs
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\App.g.cs
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\WPF ZOO MANAGER 2_MarkupCompile.cache
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\WPF ZOO MANAGER 2_MarkupCompile.lref
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\MainWindow.baml
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\WPF ZOO MANAGER 2.g.resources
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\WPF_ZOO_MANAGER_2.Properties.Resources.resources
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\WPF ZOO MANAGER 2.csproj.GenerateResource.cache
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\WPF ZOO MANAGER 2.exe
+C:\Users\Diyar Faraj\source\repos\WPF ZOO MANAGER 2\WPF ZOO MANAGER 2\obj\Debug\WPF ZOO MANAGER 2.pdb
