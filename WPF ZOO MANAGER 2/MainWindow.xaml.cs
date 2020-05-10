@@ -32,6 +32,7 @@ namespace WPF_ZOO_MANAGER_2
             sqlConnection = new SqlConnection(connectionString);
 
             ShowZoos();
+            ShowAllAnimals();
         }
 
         private void ShowZoos()
@@ -60,6 +61,79 @@ namespace WPF_ZOO_MANAGER_2
                 MessageBox.Show(e.ToString());
             }
             
+        }
+
+        private void ShowAnimals()
+        {
+            try
+            {
+                string query = "select * from Animal a inner join ZooAnimal za on a.Id = za.AnimalId where za.ZooId = @zooId";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                using (sqlDataAdapter)
+                {
+                    sqlCommand.Parameters.AddWithValue("@zooId", zooList.SelectedValue);
+
+                    DataTable animalTable = new DataTable();
+
+                    sqlDataAdapter.Fill(animalTable);
+
+                    animalsList.DisplayMemberPath = "Name";
+                    animalsList.SelectedValuePath = "Id";
+                    animalsList.ItemsSource = animalTable.DefaultView;
+
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.ToString());
+            }
+
+        }
+
+        private void zooList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            ShowAnimals();
+        }
+
+
+        private void ShowAllAnimals()
+        {
+            try
+            {
+                string query = "select * from Animal";
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
+
+                using (sqlDataAdapter)
+                {
+                    DataTable allAnimalsTable = new DataTable();
+
+                    sqlDataAdapter.Fill(allAnimalsTable);
+
+                    allAnimals.DisplayMemberPath = "Name";
+                    allAnimals.SelectedValuePath = "Id";
+                    allAnimals.ItemsSource = allAnimalsTable.DefaultView;
+
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.ToString());
+            }
+
+        }
+
+        private void allAnimals_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //ShowAllAnimals();
+
         }
     }
 }
