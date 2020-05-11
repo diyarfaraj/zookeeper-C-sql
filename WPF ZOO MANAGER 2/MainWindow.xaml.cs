@@ -58,7 +58,7 @@ namespace WPF_ZOO_MANAGER_2
             catch (Exception e)
             {
 
-                MessageBox.Show(e.ToString());
+               // MessageBox.Show(e.ToString());
             }
             
         }
@@ -130,10 +130,89 @@ namespace WPF_ZOO_MANAGER_2
 
         }
 
-        private void allAnimals_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //ShowAllAnimals();
 
+      
+        private void Delete_Zoo_Btn(object sender, RoutedEventArgs e)
+        {
+
+
+            try
+            {
+                string query = "delete from Zoo where Id = @ZooId";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@ZooId", zooList.SelectedValue);
+                sqlCommand.ExecuteScalar();
+               
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowZoos();
+            }
+
+           
+        }
+
+        private void Add_Zoo_Btn(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "insert into Zoo values (@Location)";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@Location", myTextBox.Text);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowZoos();
+                myTextBox.Clear();
+            }
+        }
+
+        private void Add_Animal_To_Zoo_Btn(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "insert into ZooAnimal values (@ZooId ,@AnimalId)";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@ZooId", zooList.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@AnimalId", allAnimals.SelectedValue);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAnimals();
+                
+                
+                myTextBox.Clear();
+            }
         }
     }
 }
