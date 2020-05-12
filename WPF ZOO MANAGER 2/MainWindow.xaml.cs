@@ -209,10 +209,102 @@ namespace WPF_ZOO_MANAGER_2
             {
                 sqlConnection.Close();
                 ShowAnimals();
-                
-                
                 myTextBox.Clear();
             }
         }
+
+        //REMOVE ANIMAL FROM  ZOOOOOOO
+        private void RemoveAnimalFromZoo(object sender, RoutedEventArgs e)
+        {
+            
+            try
+            {
+                string query = "delete from ZooAnimal where Id = @AnimalId";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+                //sqlCommand.Parameters.AddWithValue("@ZooId", zooList.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@AnimalId", animalsList.SelectedValue);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAnimals();
+                myTextBox.Clear();
+            }
+        }
+
+        //Delete animal completely 
+
+        private void DeleteAnimal(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "delete from Animal where Id = @AnimalId";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@AnimalId", allAnimals.SelectedValue);
+                sqlCommand.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAllAnimals();
+                ShowAnimals();
+            }
+
+
+        }
+
+        private void AddToAnimal(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                string query = "insert into Animal values (@Name)";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@Name", myTextBox.Text);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAllAnimals();
+                myTextBox.Clear();
+            }
+
+        }
+
+        //show slected values
+
+        private void ShowSelectedValue()
+        {
+
+        }
+
     }
 }
